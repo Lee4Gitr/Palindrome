@@ -1,0 +1,30 @@
+﻿@model spinutech_palindrome.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="text-center">
+            Is your number a palindrome?
+
+            Please enter an integer between 0 and 9007199254740991:
+            @* I've set the max value to the Number.MAX_SAFE_INTEGER in JavaScript. Empty values will submit as 0. *@
+            @using (Html.BeginForm("Palindrome", "Home", FormMethod.Get))
+            {
+                @Html.TextBoxFor(model => model.Number, new
+                {
+                    @type = "number",
+                    oncopy = "return false",
+                    onpaste = "return false",
+                    min = "0",
+                    max = 9007199254740991,
+                })
+                @Html.ValidationMessageFor(model => model.Number)
+                <button type="submit">Find out!</button>
+            }
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+﻿@model spinutech_palindrome.Models.PalindromeViewModel
+
+@{
+    ViewBag.Title = "Was your number a palindrome?";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>
+            @* Your number @Model.num.ToString() is @Model.isPalindrome ? "" : "Not"; a palindrome. *@
+            Your number of @Model.num is @(Model.isPalindrome ? "" : "NOT") a palindrome.
+        </h2>
+
+        <section>
+            <p>
+                A palindrome is a sequence of symbols that exactly matches itself read backwards. This example accepts only
+                numbers. e.g. 121 is a palindrome, 123 is NOT a palindrome.
+            </p>
+
+            @Html.ActionLink("Try another number?", "Index", "Home")
+        </section>
+    </div>
+</div>
